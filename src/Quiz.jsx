@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-const url = "https://opentdb.com/api.php?amount=5";
 import { Blocks } from "react-loader-spinner";
+
+const url = "https://opentdb.com/api.php?amount=5";
 
 const Quiz = () => {
   const [questionList, setQuestionList] = useState({});
@@ -28,16 +29,21 @@ const Quiz = () => {
     }
   };
   if (loading) {
-    return <div><Blocks
-    visible={true}
-    height="100%"
-    width="500px"
-    ariaLabel="blocks-loading"
-    wrapperStyle={{}}
-    wrapperClass="blocks-wrapper"
-  /></div>;
+    return (
+      <div>
+        <Blocks
+          visible={true}
+          height="100%"
+          width="500px"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+        />
+      </div>
+    );
   }
-  const { question, correct_answer, incorrect_answers } = questionList[number];
+  const { question, correct_answer, incorrect_answers, category, difficulty } =
+    questionList[number];
   return (
     <>
       {showScore ? (
@@ -56,7 +62,11 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="container">
-          <h1 id="q">Q. {question}</h1>
+          <h1 id="q">
+            {" "}
+            ({category}) <br />
+            Q. {question} <br /> ({difficulty}){" "}
+          </h1>
 
           <div
             onClick={() => {
@@ -64,15 +74,13 @@ const Quiz = () => {
               handleQuestion();
             }}
           >
-            <label>1. {correct_answer}</label>
+            <label id="correct">{correct_answer}</label>
           </div>
 
           {incorrect_answers.map((item, index) => {
             return (
               <div onClick={handleQuestion} key={index}>
-                <label>
-                  {index + 2}. {item}
-                </label>
+                <label id="wrong">{item}</label>
               </div>
             );
           })}

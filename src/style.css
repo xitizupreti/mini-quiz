@@ -2,14 +2,23 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.container {
+.container,
+button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
-  background-color: azure;
+  background-color: rgb(163, 218, 218);
   margin: 5rem auto;
+}
+
+button {
+  height: 100px;
+  font-family: cursive;
+  font-size: xx-large;
+  color: #cc620b;
+  font-weight: bold;
 }
 
 #q {
@@ -32,4 +41,19 @@ label {
 
 #ans {
   color: blue;
+}
+
+label:hover {
+  background-color: #92da0e;
+}
+#correct:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#wrong:active {
+  background-color: #f4511e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
