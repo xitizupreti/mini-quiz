@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 const url = "https://opentdb.com/api.php?amount=5";
+import { Blocks } from "react-loader-spinner";
 
 const Quiz = () => {
   const [questionList, setQuestionList] = useState({});
@@ -27,7 +28,14 @@ const Quiz = () => {
     }
   };
   if (loading) {
-    return <h2>data is loading ... </h2>;
+    return <div><Blocks
+    visible={true}
+    height="100%"
+    width="500px"
+    ariaLabel="blocks-loading"
+    wrapperStyle={{}}
+    wrapperClass="blocks-wrapper"
+  /></div>;
   }
   const { question, correct_answer, incorrect_answers } = questionList[number];
   return (
@@ -62,11 +70,12 @@ const Quiz = () => {
           {incorrect_answers.map((item, index) => {
             return (
               <div onClick={handleQuestion} key={index}>
-                <label>{index+2}. {item}</label>
+                <label>
+                  {index + 2}. {item}
+                </label>
               </div>
             );
           })}
-
         </div>
       )}
     </>
