@@ -30,13 +30,13 @@ const Quiz = () => {
       setNumber(0);
     }
   };
-  const getRandomProperty = (qqq) => {
-    const keys = Object.keys(qqq);
-    return keys[Math.floor(Math.random() * keys.length)];
-  };
-  console.log(getRandomProperty(qqq));
-  console.log(getRandomProperty(qqq));
-  console.log(getRandomProperty(qqq));
+  // const getRandomProperty = (qqq) => {
+  //   const keys = Object.keys(qqq);
+  //   return keys[Math.floor(Math.random() * keys.length)];
+  // };
+  // console.log(getRandomProperty(qqq));
+  // console.log(getRandomProperty(qqq));
+  // console.log(getRandomProperty(qqq));
 
   if (loading) {
     return (
