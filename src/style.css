@@ -25,6 +25,10 @@ button {
 #q {
   color: red;
   font-size: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 label {
@@ -40,6 +44,11 @@ label {
   font-size: 100%;
   padding: 4px;
   cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #ans {
