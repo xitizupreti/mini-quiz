@@ -43,8 +43,8 @@ const Quiz = () => {
       <div>
         <Blocks
           visible={true}
-          height="100%"
-          width="500px"
+          height="80%"
+          width="400px"
           ariaLabel="blocks-loading"
           wrapperStyle={{}}
           wrapperClass="blocks-wrapper"
