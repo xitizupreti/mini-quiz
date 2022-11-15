@@ -1,0 +1,35 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-color: azure;
+    margin: 5rem auto;
+}
+
+#q{
+    color: red;
+}
+
+label{
+    background-color: rgb(208, 230, 230);
+    size: 2rem;
+    border-radius: 5px;
+    margin: 1.2rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    font-size: 1.7rem;
+}
+
+#ans{
+    color: blue;
+}
