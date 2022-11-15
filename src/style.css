@@ -58,7 +58,7 @@ label {
   transform: translateY(4px);
 }
 
-#wrong:active {
+#incorrect:active {
   background-color: #f4511e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
