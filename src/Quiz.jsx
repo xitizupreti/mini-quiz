@@ -101,7 +101,7 @@ const Quiz = () => {
             return (
               <label
                 id={`${item.correct ? "correct" : "incorrect"}`}
-                onMouseUp={() => {
+                onMouseUpCapture={() => {
                   handleQuestion();
                   if (item.correct) {
                     setScore(score + 1);
