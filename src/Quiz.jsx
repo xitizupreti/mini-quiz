@@ -6,6 +6,7 @@ const url = "https://opentdb.com/api.php?amount=5";
 
 const Quiz = () => {
   const [questionList, setQuestionList] = useState({});
+  const [qqq, setqqq] = useState({});
   const [loading, setLoading] = useState(true);
   const [number, setNumber] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -16,6 +17,7 @@ const Quiz = () => {
       const response = await axios.get(`${url}`);
       const { results } = response.data;
       setQuestionList(results);
+      setqqq(results);
       setLoading(false);
     }
     Data();
@@ -23,11 +25,19 @@ const Quiz = () => {
 
   const handleQuestion = () => {
     setNumber(number + 1);
-    if (number >= questionList.length - 1) {
+    if (number >= qqq.length - 1) {
       setShowScore(true);
       setNumber(0);
     }
   };
+  const getRandomProperty = (qqq) => {
+    const keys = Object.keys(qqq);
+    return keys[Math.floor(Math.random() * keys.length)];
+  };
+  console.log(getRandomProperty(qqq));
+  console.log(getRandomProperty(qqq));
+  console.log(getRandomProperty(qqq));
+
   if (loading) {
     return (
       <div>
@@ -42,8 +52,8 @@ const Quiz = () => {
       </div>
     );
   }
-  const { question, correct_answer, incorrect_answers, category, difficulty } =
-    questionList[number];
+  const { question, category, difficulty } = questionList[number];
+  const { correct_answer, incorrect_answers } = qqq[number];
   return (
     <>
       {showScore ? (
@@ -57,15 +67,14 @@ const Quiz = () => {
             Play again ?
           </button>
           <h1 id="ans">
-            You Scored {score}/{questionList.length}
+            You Scored {score}/{qqq.length}
           </h1>
         </div>
       ) : (
         <div className="container">
           <h1 id="q">
-            {" "}
             ({category}) <br />
-            Q. {question} <br /> ({difficulty}){" "}
+            Q. {question} <br /> ({difficulty})
           </h1>
 
           <div
