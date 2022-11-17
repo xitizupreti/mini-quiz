@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Blocks } from "react-loader-spinner";
-
 const url = "https://opentdb.com/api.php?amount=5";
 
 const Quiz = () => {
@@ -101,7 +100,13 @@ const Quiz = () => {
             return (
               <label
                 id={`${item.correct ? "correct" : "incorrect"}`}
-                onMouseUpCapture={() => {
+                onTouchEnd={() => {
+                  handleQuestion();
+                  if (item.correct) {
+                    setScore(score + 1);
+                  }
+                }}
+                onMouseUp={() => {
                   handleQuestion();
                   if (item.correct) {
                     setScore(score + 1);
